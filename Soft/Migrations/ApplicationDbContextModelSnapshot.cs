@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Soft.Data;
 
-namespace Soft.Migrations
+namespace bc.Soft.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -27,6 +27,12 @@ namespace Soft.Migrations
                     b.Property<string>("BuyerId")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("From")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("To")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.ToTable("Baskets");
@@ -43,8 +49,14 @@ namespace Soft.Migrations
                     b.Property<string>("CatalogItemId")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("From")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("To")
+                        .HasColumnType("datetime2");
 
                     b.Property<decimal>("UnitPrice")
                         .HasColumnType("decimal(16,4)");
@@ -59,8 +71,17 @@ namespace Soft.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("From")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("To")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -72,8 +93,17 @@ namespace Soft.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("From")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("To")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -94,6 +124,9 @@ namespace Soft.Migrations
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("From")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
@@ -102,6 +135,9 @@ namespace Soft.Migrations
 
                     b.Property<string>("Street")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("To")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ZipCode")
                         .HasColumnType("nvarchar(max)");
@@ -119,6 +155,9 @@ namespace Soft.Migrations
                     b.Property<string>("CatalogItemId")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("From")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("OrderId")
                         .HasColumnType("nvarchar(max)");
 
@@ -127,6 +166,9 @@ namespace Soft.Migrations
 
                     b.Property<string>("ProductName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("To")
+                        .HasColumnType("datetime2");
 
                     b.Property<decimal>("UnitPrice")
                         .HasColumnType("decimal(16,4)");
@@ -150,8 +192,14 @@ namespace Soft.Migrations
                     b.Property<string>("CatalogTypeId")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("From")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -161,6 +209,9 @@ namespace Soft.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(16,4)");
+
+                    b.Property<DateTime?>("To")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
