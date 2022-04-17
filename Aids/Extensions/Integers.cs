@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Abc.Aids.Regions;
+using System;
 using System.Globalization;
-using Abc.Aids.Regions;
 
 namespace Abc.Aids.Extensions {
     public static class Integers {
@@ -22,15 +22,13 @@ namespace Abc.Aids.Extensions {
                 i = Convert.ToInt32(x);
 
                 return true;
-            }
-            catch { return false; }
+            } catch { return false; }
         }
 
         public static bool ToInteger(object o, out int i) {
             i = int.MaxValue;
 
-            return o switch
-            {
+            return o switch {
                 string s => tryParse(s, out i),
                 sbyte i8 => tryConvert(i8, out i),
                 short i16 => tryConvert(i16, out i),

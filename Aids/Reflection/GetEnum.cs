@@ -1,5 +1,5 @@
-﻿using System;
-using Abc.Aids.Methods;
+﻿using Abc.Aids.Methods;
+using System;
 
 namespace Abc.Aids.Reflection {
 
@@ -8,7 +8,7 @@ namespace Abc.Aids.Reflection {
         public static int Count<T>() => Count(typeof(T));
 
         public static T Value<T>(int i)
-            => Safe.Run(() => (T) Value(typeof(T), i), default(T));
+            => Safe.Run(() => (T)Value(typeof(T), i), default(T));
 
         public static int Count(Type type)
             => Safe.Run(() => Enum.GetValues(type).Length, -1);

@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Abc.Aids.Extensions;
+using Abc.Aids.Methods;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Abc.Aids.Extensions;
-using Abc.Aids.Methods;
 
 namespace Abc.Aids.Reflection {
 
@@ -16,7 +16,7 @@ namespace Abc.Aids.Reflection {
                 new List<Assembly>());
 
         public static Assembly AssemblyByName(string name) {
-            return Safe.Run(() => Assembly.Load(name), (Assembly) null);
+            return Safe.Run(() => Assembly.Load(name), (Assembly)null);
         }
 
         public static List<Type> TypesForAssembly(string assemblyName) {

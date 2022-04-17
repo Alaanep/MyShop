@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Abc.Aids.Methods;
+using Abc.Aids.Random;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Abc.Aids.Methods;
-using Abc.Aids.Random;
 
 namespace Abc.Aids.Reflection {
 
@@ -13,7 +13,7 @@ namespace Abc.Aids.Reflection {
                 var t = typeof(T);
                 var o = Instance(t);
 
-                return (o is null) ? default : (T) o;
+                return (o is null) ? default : (T)o;
             }
             var def = default(T);
             return Safe.Run(f, def);

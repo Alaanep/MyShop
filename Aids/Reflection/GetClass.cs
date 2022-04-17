@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Abc.Aids.Classes;
+using Abc.Aids.Methods;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using Abc.Aids.Classes;
-using Abc.Aids.Methods;
 
 namespace Abc.Aids.Reflection {
 
@@ -35,12 +35,12 @@ namespace Abc.Aids.Reflection {
             => type?.GetProperties(f).ToList() ?? new List<PropertyInfo>();
 
         public static PropertyInfo Property<T>(string name)
-            => Safe.Run(() => typeof(T).GetProperty(name), (PropertyInfo) null);
+            => Safe.Run(() => typeof(T).GetProperty(name), (PropertyInfo)null);
 
         public static PropertyInfo Property<T>(Expression<Func<T, object>> e) {
             var n = GetMember.Name(e);
 
-            return Safe.Run(() => typeof(T).GetProperty(n), (PropertyInfo) null);
+            return Safe.Run(() => typeof(T).GetProperty(n), (PropertyInfo)null);
         }
 
         private static void removeSurrogates(IList<MemberInfo> l) {
@@ -86,8 +86,7 @@ namespace Abc.Aids.Reflection {
                 var i = 0;
 
                 while (true) {
-                    try { l.Add(p.GetValue(o, new object[] { i++ })); }
-                    catch {
+                    try { l.Add(p.GetValue(o, new object[] { i++ })); } catch {
                         l.Add(i);
 
                         return;

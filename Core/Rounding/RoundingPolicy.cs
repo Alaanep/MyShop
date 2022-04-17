@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Abc.Aids.Values;
+using System;
 using System.Globalization;
-using Abc.Aids.Values;
 
 namespace Abc.Core.Rounding {
 
@@ -27,9 +27,9 @@ namespace Abc.Core.Rounding {
             byte r = 0;
 
             foreach (var v in s) {
-                if (found) return (byte) (v - '0');
+                if (found) return (byte)(v - '0');
                 if (v == '.') found = true;
-                else r = (byte) (v - '0');
+                else r = (byte)(v - '0');
             }
 
             return r;
@@ -42,9 +42,9 @@ namespace Abc.Core.Rounding {
             byte r = 0;
 
             foreach (var v in s) {
-                if (found) return (byte) (v - '0');
+                if (found) return (byte)(v - '0');
                 if (v == '.') found = true;
-                else r = (byte) (v - '0');
+                else r = (byte)(v - '0');
             }
 
             return r;
@@ -86,8 +86,7 @@ namespace Abc.Core.Rounding {
         public byte RoundingDigit { get; }
 
         public double Round(double amount) {
-            return RoundingStrategy switch
-            {
+            return RoundingStrategy switch {
                 RoundingStrategy.RoundUp => roundUp(amount),
                 RoundingStrategy.RoundDown => roundDown(amount),
                 RoundingStrategy.RoundTowardsNegative => roundTowardsNegative(amount),
@@ -99,8 +98,7 @@ namespace Abc.Core.Rounding {
         }
 
         public decimal Round(decimal amount) {
-            return RoundingStrategy switch
-            {
+            return RoundingStrategy switch {
                 RoundingStrategy.RoundUp => roundUp(amount),
                 RoundingStrategy.RoundDown => roundDown(amount),
                 RoundingStrategy.RoundTowardsNegative => roundTowardsNegative(amount),

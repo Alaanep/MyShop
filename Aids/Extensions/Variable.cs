@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Abc.Aids.Methods;
+using System;
 using System.ComponentModel;
-using Abc.Aids.Methods;
 
 namespace Abc.Aids.Extensions {
 
@@ -15,7 +15,7 @@ namespace Abc.Aids.Extensions {
             => Safe.Run(() => {
                 var converter = TypeDescriptor.GetConverter(typeof(T));
 
-                return (T) converter.ConvertFromString(s);
+                return (T)converter.ConvertFromString(s);
             }, default(T));
 
         public static object TryParse(string s, Type t)

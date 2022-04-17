@@ -1,8 +1,8 @@
-﻿using Data;
+﻿using Abc.Data.Shop;
 using Infra;
 
 namespace Pages {
-    public class BasketsPage :AbstractPage<BasketsPage,BasketData> {
+    public class BasketsPage : AbstractPage<BasketsPage, BasketData> {
         public BasketsPage(ShopDbContext c) : base(c, c.Baskets) {
             Caption = "Baskets";
         }

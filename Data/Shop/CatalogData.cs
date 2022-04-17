@@ -1,8 +1,7 @@
 ﻿using Abc.Data.Common;
 
-namespace Data {
-    public class CatalogData : NamedEntityData
-    {
+namespace Abc.Data.Shop {
+    public class CatalogData : NamedEntityData {
     }
 
 }

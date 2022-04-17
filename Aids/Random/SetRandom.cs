@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Abc.Aids.Methods;
+using Abc.Aids.Reflection;
+using System;
 using System.Collections;
 using System.Linq;
-using Abc.Aids.Methods;
-using Abc.Aids.Reflection;
 
 namespace Abc.Aids.Random {
     public static class SetRandom {
@@ -41,7 +41,7 @@ namespace Abc.Aids.Random {
                  select method.ReturnType
                 ).Distinct().ToArray();
                 return types[0];
-            }, (Type) null);
+            }, (Type)null);
         }
     }
 }

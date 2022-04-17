@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Data;
-using Infra;
+﻿using Infra;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Soft.Data
-{
-    public class ApplicationDbContext : IdentityDbContext
-    {
+namespace Soft.Data {
+    public class ApplicationDbContext : IdentityDbContext {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
-        {
+            : base(options) {
         }
 
         protected override void OnModelCreating(ModelBuilder b) {

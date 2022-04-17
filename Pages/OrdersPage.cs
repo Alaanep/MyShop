@@ -1,4 +1,4 @@
-﻿using Data;
+﻿using Abc.Data.Shop;
 using Infra;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -6,7 +6,7 @@ using System;
 using System.Linq.Expressions;
 
 namespace Pages {
-    public class OrdersPage :AbstractPage<OrdersPage, OrderData> {
+    public class OrdersPage : AbstractPage<OrdersPage, OrderData> {
         public OrdersPage(ShopDbContext c) : base(c, c.Orders) {
             Caption = "Orders";
         }

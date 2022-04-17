@@ -7,7 +7,7 @@ namespace Abc.Aids.Extensions {
         public static string ToStr(this Enum value) {
             var i = value.GetType().GetField(value.ToString());
             var a = i?.GetCustomAttribute(typeof(DescriptionAttribute)) as DescriptionAttribute;
-            return a?.Description?? value.ToString();
+            return a?.Description ?? value.ToString();
         }
     }
 }

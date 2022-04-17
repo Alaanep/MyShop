@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Abc.Aids.Methods;
+using Abc.Aids.Reflection;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
-using Abc.Aids.Methods;
-using Abc.Aids.Reflection;
 
 namespace Abc.Aids.Random {
 
@@ -15,7 +15,7 @@ namespace Abc.Aids.Random {
         public static bool Bool() => Int32() % 2 == 0;
 
         public static char Char(char min = char.MinValue, char max = char.MaxValue)
-            => (char) UInt16(min, max);
+            => (char)UInt16(min, max);
 
         public static Color Color()
             => System.Drawing.Color.FromArgb(UInt8(), UInt8(), UInt8());
@@ -48,7 +48,7 @@ namespace Abc.Aids.Random {
             return min - d * min + d * max;
         }
 
-        public static T Enum<T>() => (T) Enum(typeof(T));
+        public static T Enum<T>() => (T)Enum(typeof(T));
 
         public static object Enum(Type t) {
             var count = GetEnum.Count(t);
@@ -61,10 +61,10 @@ namespace Abc.Aids.Random {
             => Convert.ToSingle(Double(min, max));
 
         public static sbyte Int8(sbyte min = sbyte.MinValue, sbyte max = sbyte.MaxValue)
-            => (sbyte) Int32(min, max);
+            => (sbyte)Int32(min, max);
 
         public static short Int16(short min = short.MinValue, short max = short.MaxValue)
-            => (short) Int32(min, max);
+            => (short)Int32(min, max);
 
         public static int Int32(int min = int.MinValue, int max = int.MaxValue) {
             if (min.CompareTo(max) == 0) return min;
@@ -92,10 +92,10 @@ namespace Abc.Aids.Random {
         public static TimeSpan TimeSpan() => new TimeSpan(Int64());
 
         public static byte UInt8(byte min = byte.MinValue, byte max = byte.MaxValue)
-            => (byte) Int32(min, max);
+            => (byte)Int32(min, max);
 
         public static ushort UInt16(ushort min = ushort.MinValue, ushort max = ushort.MaxValue)
-            => (ushort) Int32(min, max);
+            => (ushort)Int32(min, max);
 
         public static uint UInt32(uint min = uint.MinValue, uint max = uint.MaxValue)
             => Convert.ToUInt32(Double(min, max));
@@ -155,7 +155,7 @@ namespace Abc.Aids.Random {
             if (t is null) return null;
             var listType = typeof(List<>);
             var constructedListType = listType.MakeGenericType(t);
-            var list = (IList) Activator.CreateInstance(constructedListType);
+            var list = (IList)Activator.CreateInstance(constructedListType);
             for (var i = 0; i < UInt8(3, 10); i++) list.Add(Value(t));
             var array = System.Array.CreateInstance(t, list.Count);
             list.CopyTo(array, 0);
@@ -193,8 +193,7 @@ namespace Abc.Aids.Random {
         public static object AnyDouble(byte minValue = 0, byte maxValue = 100) {
             var i = UInt8();
 
-            return (i % 10) switch
-            {
+            return (i % 10) switch {
                 0 => Int32(minValue, maxValue),
                 1 => UInt32(minValue, maxValue),
                 2 => Float(minValue, maxValue),
@@ -211,8 +210,7 @@ namespace Abc.Aids.Random {
         public static object AnyInt(byte minValue = 0, byte maxValue = 100) {
             var i = UInt8();
 
-            return (i % 5) switch
-            {
+            return (i % 5) switch {
                 0 => Int8(0),
                 1 => UInt8(minValue, maxValue),
                 2 => Int16(minValue, maxValue),
@@ -224,9 +222,8 @@ namespace Abc.Aids.Random {
         public static object AnyValue() {
             var i = Int32();
 
-            return (i % 10) switch
-            {
-                0 => (object) DateTime(),
+            return (i % 10) switch {
+                0 => (object)DateTime(),
                 1 => String(),
                 2 => Char(),
                 3 => Int32(),

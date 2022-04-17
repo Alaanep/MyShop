@@ -1,9 +1,8 @@
 ﻿using Abc.Data.Common;
 using System;
 
-namespace Data {
-    public class OrderData : UniqueEntityData
-    {
+namespace Abc.Data.Shop {
+    public class OrderData : UniqueEntityData {
         public string BuyerId { get; set; }
         public DateTime OrderDate { get; set; }
         public string Street { get; set; }

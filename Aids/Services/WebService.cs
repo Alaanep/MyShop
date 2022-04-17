@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Abc.Aids.Logging;
+using System;
 using System.Net;
-using Abc.Aids.Logging;
 
 namespace Abc.Aids.Services {
 
@@ -13,8 +13,7 @@ namespace Abc.Aids.Services {
                 num++;
                 using var client = new WebClient();
 
-                try { return client.DownloadString(url); }
-                catch (Exception e) { Log.Exception(e); }
+                try { return client.DownloadString(url); } catch (Exception e) { Log.Exception(e); }
             }
 
             return string.Empty;

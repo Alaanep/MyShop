@@ -1,7 +1,7 @@
-﻿using Data;
+﻿using Abc.Data.Shop;
 
 namespace Soft.Data {
 
-    public class TestData: BrandData {}
+    public class TestData : BrandData { }
 
 }

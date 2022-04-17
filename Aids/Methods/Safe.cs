@@ -1,5 +1,5 @@
-﻿using System;
-using Abc.Aids.Logging;
+﻿using Abc.Aids.Logging;
+using System;
 
 namespace Abc.Aids.Methods {
 
@@ -35,8 +35,7 @@ namespace Abc.Aids.Methods {
         }
 
         private static T run<T>(Func<T> function, T valueOnExeption) {
-            try { return function(); }
-            catch (Exception e) {
+            try { return function(); } catch (Exception e) {
                 Log.Exception(e);
 
                 return valueOnExeption;
@@ -44,8 +43,7 @@ namespace Abc.Aids.Methods {
         }
 
         private static T run<T>(Func<T> function, Func<string, T> valueOnExeption) {
-            try { return function(); }
-            catch (Exception e) {
+            try { return function(); } catch (Exception e) {
                 Log.Exception(e);
 
                 return valueOnExeption is null ? default : valueOnExeption(e.Message);
@@ -53,8 +51,7 @@ namespace Abc.Aids.Methods {
         }
 
         private static void run(Action action) {
-            try { action(); }
-            catch (Exception e) { Log.Exception(e); }
+            try { action(); } catch (Exception e) { Log.Exception(e); }
         }
 
     }

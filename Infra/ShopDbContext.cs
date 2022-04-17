@@ -1,11 +1,10 @@
-﻿using Data;
+﻿using Abc.Data.Shop;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace Infra {
-    public class ShopDbContext: DbContext {
+    public class ShopDbContext : DbContext {
         public ShopDbContext(DbContextOptions<ShopDbContext> options)
-            : base(options) {}
+            : base(options) { }
         public DbSet<OrderData> Orders { get; set; }
         public DbSet<OrderItemData> OrderItems { get; set; }
         public DbSet<CatalogData> Catalogs { get; set; }
@@ -22,7 +21,7 @@ namespace Infra {
             b.Entity<BasketData>().ToTable(nameof(Baskets));
             b.Entity<BasketItemData>().ToTable(nameof(BasketItems))
                 .Property(x => x.UnitPrice)
-                .HasColumnType("decimal(16,4)"); 
+                .HasColumnType("decimal(16,4)");
             b.Entity<ProductData>().ToTable(nameof(Products))
                 .Property(x => x.Price)
                 .HasColumnType("decimal(16,4)");

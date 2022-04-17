@@ -1,5 +1,5 @@
-﻿using System.Globalization;
-using Abc.Aids.Methods;
+﻿using Abc.Aids.Methods;
+using System.Globalization;
 
 namespace Abc.Aids.Regions {
 
@@ -16,7 +16,7 @@ namespace Abc.Aids.Regions {
         public static RegionInfo ToRegionInfo(CultureInfo info) {
             return info is null
                 ? null
-                : Safe.Run(() => new RegionInfo(info.LCID), (RegionInfo) null);
+                : Safe.Run(() => new RegionInfo(info.LCID), (RegionInfo)null);
         }
     }
 

@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
-using System.Collections.Generic;
 using Pages;
+using System.Collections.Generic;
 
 namespace Soft.Extensions {
     public static class TableHtmlExtension {
-        public static IHtmlContent ShowTable<TPage, TData>(this IHtmlHelper<TPage> h, 
+        public static IHtmlContent ShowTable<TPage, TData>(this IHtmlHelper<TPage> h,
             IIndexTable<TPage, TData> page) {
             var s = htmlStrings(h, page);
             return new HtmlContentBuilder(s);
@@ -14,10 +13,10 @@ namespace Soft.Extensions {
 
         private static List<object> htmlStrings<TPage, TData>(this IHtmlHelper<TPage> h,
             IIndexTable<TPage, TData> page) {
-            var l =  new List<object> {
+            var l = new List<object> {
                 new HtmlString("<table class=\"table\">"),
                 new HtmlString("<thead>"),
-                new HtmlString("<tr>") 
+                new HtmlString("<tr>")
             };
             for (var i = 0; i < page.ColumnsCount; i++) {
                 l.Add(new HtmlString("<th>"));
